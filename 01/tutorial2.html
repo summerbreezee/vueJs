@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- 상용버전, 속도와 용량 최적화 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 조건문과 반복문 -->
+  <div id="app-3">
+    <p v-if="seen">
+      NOW, I CAN SEE YOU :)
+    </p>
+  </div>
+
+  <div id="app-4">
+    <ol>
+      <li v-for="todo in todos">
+        {{ todo.text }}
+      </li>
+    </ol>
+  </div>
+
+  <script type="text/javascript">
+    var app3 = new Vue({
+      el: '#app-3',
+      data :{
+        seen : true //false를 입력하면, 메세지가 사라진다.
+      }
+    })
+
+    var app4 = new Vue({
+      el: '#app-4',
+      data : {
+        todos: [
+        {text : 'Vue.JS 배우기'},
+        {text : 'Vue.JS 배우기'},
+        {text : 'Vue.JS 배우기'}
+        ]
+      }
+    })
+  </script>
+</body>
+</html>
