@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!--
+    {{message}}
+    <button v-on:click="sayHello()">확인</button>
+    -->
+    <h4>{{ reversedTitle }}</h4>
+    <h4>공급대가 : {{ price }}</h4>
+    <input type="number" v-model="price">
+    <h4>공급가액 : {{supplyAmount.toFixed()}}</h4>
+    <h4>부가가치세 : {{valueAddedTax.toFixed()}}</h4>
+  </div>
+</body>
+<script type="text/javascript">
+  var vm = new Vue({
+      el : '#app',
+      data : {
+        title : '캡틴 마블',
+        price : 10000
+      },
+      computed: {
+        reversedTitle : function () {
+          return this.title.split('').reverse().join('')
+        },
+        supplyAmount : function () {
+          return (this.price / 11) * 10
+        },
+        valueAddedTax : function () {
+          return (this.price / 11)
+        }
+      },
+      /*
+     data: function () {
+       return {
+          message : 'Have a nice day! :)'
+       }
+     },
+     */
+     /*
+     template : `<div id="newDiv">
+        <div> 첫번째 div </div>
+        <div> 두번째 div </div>
+        <div> 세번째 div </div>
+      </div>`
+    */
+     methods : {
+       sayHello: function () {
+         alert(this.message);
+       }
+     }
+  })
+  /*
+    뷰 인스턴스를 생성하면서 el, data 객체를 포함했다.
+    el 프로퍼티는 HTML 문서에 마운트 될 HTML Element를 나타내는데,
+    id가 app인 div Element를 가리킨다.
+
+    다음으로 data 객체는 일종의 데이터 모델 역할을 하며, data 객체 내에 정의되는
+    프로퍼티들의 값이 변하면 뷰에 해당하는 값도 변한다.
+
+    1) template 프로퍼티 : vue화면에 표시할 html 엘리먼트나 스타일 등을 설정하는데 사용한다.
+    2) methods 프로퍼티
+    3) computed 프로퍼티 : vue instance에 존재하는 데이터를 조작하는데 유용한 프로퍼티
+   */
+</script>
+</html>
